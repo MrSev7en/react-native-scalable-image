@@ -9,7 +9,8 @@ import PropTypes from 'prop-types';
 import {
     Image,
     TouchableOpacity,
-    ImageBackground
+    ImageBackground,
+    View
 } from 'react-native';
 
 const resolveAssetSource = Image.resolveAssetSource;
@@ -40,13 +41,15 @@ const ScalableImage = props => {
 
     useEffect(() => {
         setImage(
-            <ImageComponent
-                {...props}
-                style={[props.style, {
-                    width: scalableWidth,
-                    height: scalableHeight
-                }]}
-            />
+            <View style={{ display: 'flex', justifyContent: 'center' }}>
+                <ImageComponent
+                    {...props}
+                    style={[props.style, {
+                        width: scalableWidth,
+                        height: scalableHeight
+                    }]}
+                />
+            </View>
         );
     }, [scalableHeight, scalableWidth]);
 
